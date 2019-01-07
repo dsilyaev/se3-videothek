@@ -3,7 +3,6 @@ import java.util.List;
 
 public class Customer {
 
-
     private String name;
     private List<Rental> rentals = new ArrayList<>();
 
@@ -20,25 +19,11 @@ public class Customer {
     }
 
     public String statement() {
-        double totalAmount = 0;     int frequentRenterPoints = 0;
+        double totalAmount = 0;
+        int frequentRenterPoints = 0;
         String result = "Rental Record for " + getName() + "\n";
         for (Rental r : rentals) {
-            double thisAmount = 0;
-            switch (r.getMovie().getPriceCode()) {
-                case Movie.REGULAR:
-                    thisAmount += 2;
-                    if (r.getDaysRented() > 2)
-                        thisAmount += (r.getDaysRented() - 2) * 1.5;
-                    break;
-                case Movie.NEW_RELEASE:
-                    thisAmount += r.getDaysRented() * 3;
-                    break;
-                case Movie.CHILDREN:
-                    thisAmount += 1.5;
-                    if (r.getDaysRented() > 3)
-                        thisAmount += (r.getDaysRented() - 3) * 1.5;
-                    break;
-            }
+            double thisAmount = amountFor(r);
 
             // add frequent renter points, add bonus, etc.
             frequentRenterPoints++;
@@ -61,9 +46,25 @@ public class Customer {
         result += "You earned " + frequentRenterPoints
                 + " frequent renter points";
         return result;
-
-
     }
 
-
+    private double amountFor(Rental r) {
+        double thisAmount = 0;
+        switch (r.getMovie().getPriceCode()) {
+            case Movie.REGULAR:
+                thisAmount += 2;
+                if (r.getDaysRented() > 2)
+                    thisAmount += (r.getDaysRented() - 2) * 1.5;
+                break;
+            case Movie.NEW_RELEASE:
+                thisAmount += r.getDaysRented() * 3;
+                break;
+            case Movie.CHILDREN:
+                thisAmount += 1.5;
+                if (r.getDaysRented() > 3)
+                    thisAmount += (r.getDaysRented() - 3) * 1.5;
+                break;
+        }
+        return thisAmount;
+    }
 }

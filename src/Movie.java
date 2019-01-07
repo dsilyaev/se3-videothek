@@ -11,7 +11,6 @@ public class Movie {
         this.priceCode = priceCode;
     }
 
-
     public String getTitle() {
         return title;
     }
