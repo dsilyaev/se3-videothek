@@ -26,17 +26,12 @@ public class Customer {
         }
         // add footer lines
         result += "Amount owed is " + getTotalCharge() + "\n";
-        result += "You earned " + getTotalFrequentRenterPoints()
-                + " frequent renter points";
+        result += "You earned " + getTotalFrequentRenterPoints() + " frequent renter points";
         return result;
     }
 
     private double getTotalCharge() {
-        double result = 0;
-        for (Rental r : rentals) {
-            result += r.getCharge();
-        }
-        return result;
+        return rentals.stream().mapToDouble(Rental::getCharge).sum();
     }
 
     private int getTotalFrequentRenterPoints() {
