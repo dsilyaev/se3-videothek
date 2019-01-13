@@ -1,8 +1,15 @@
+package videothek;
+
+import videothek.pricing.ChildrenPricing;
+import videothek.pricing.NewReleasePricing;
+import videothek.pricing.RegularPricing;
+import videothek.pricing.SeriesPricing;
+
 import java.util.List;
 import java.util.ArrayList;
 import java.io.BufferedWriter;
-import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class CustomerTest {

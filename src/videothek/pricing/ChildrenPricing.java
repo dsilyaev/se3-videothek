@@ -1,3 +1,5 @@
+package videothek.pricing;
+
 public class ChildrenPricing implements PricingStrategy {
     @Override
     public double getCharge(int daysRented) {

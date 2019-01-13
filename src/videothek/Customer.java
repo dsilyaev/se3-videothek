@@ -1,3 +1,5 @@
+package videothek;
+
 import java.util.List;
 import java.util.ArrayList;
 
@@ -18,7 +20,7 @@ public class Customer {
     }
 
     public String statement() {
-        String result = "Rental Record for " + getName() + "\n";
+        String result = "videothek.Rental Record for " + getName() + "\n";
         for (Rental r : rentals) {
             // show figures for this rental
             result += "\t" + r.getMovie().getTitle() + "\t" + r.getCharge() + "\n";
@@ -38,7 +40,7 @@ public class Customer {
                 .append("\t" + "<style>table, th, td {border: 1px solid black;}</style>" + "\n")
                 .append("</head>" + "\n")
                 .append("<body>" + "\n")
-                .append(String.format("\t" + "<p>Rental Record for %s</p>" + "\n", getName()))
+                .append(String.format("\t" + "<p>videothek.Rental Record for %s</p>" + "\n", getName()))
                 .append("\t" + "<table>" + "\n")
                 .append("\t\t" + "<tr><th>Title</th><th>Price</th></tr>" + "\n");
         for (Rental r : rentals) {

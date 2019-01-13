@@ -1,3 +1,5 @@
+package videothek.pricing;
+
 public class RegularPricing implements PricingStrategy {
     @Override
     public double getCharge(int daysRented) {

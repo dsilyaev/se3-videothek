@@ -1,3 +1,7 @@
+package videothek;
+
+import videothek.pricing.PricingStrategy;
+
 public class Movie {
     private final String title;
     private PricingStrategy pricingStrategy;
