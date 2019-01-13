@@ -1,5 +1,9 @@
-import java.util.ArrayList;
 import java.util.List;
+import java.util.ArrayList;
+import java.io.BufferedWriter;
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
+import java.io.IOException;
 
 public class CustomerTest {
     private Customer customer = new Customer("John Smith");
@@ -19,5 +23,13 @@ public class CustomerTest {
     @org.junit.Test
     public void statement() {
         System.out.println(customer.statement());
+    }
+
+    @org.junit.Test
+    public void statementHtml() throws IOException {
+        try (BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(
+                new FileOutputStream("rental-record.html"), "UTF-8"))) {
+            writer.write(customer.statementHtml());
+        }
     }
 }
