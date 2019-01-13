@@ -14,10 +14,12 @@ public class CustomerTest {
         movies.add(new Movie("Avengers: Infinity War", new NewReleasePricing()));
         movies.add(new Movie("Guardians of the Galaxy", new RegularPricing()));
         movies.add(new Movie("Lion King", new ChildrenPricing()));
+        movies.add(new Movie("Friends", new SeriesPricing()));
 
         customer.addRental(new Rental(movies.get(0), 3));
         customer.addRental(new Rental(movies.get(1), 5));
         customer.addRental(new Rental(movies.get(2), 7));
+        customer.addRental(new Rental(movies.get(3), 30));
     }
 
     @org.junit.Test
